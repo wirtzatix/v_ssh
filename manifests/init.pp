@@ -1,4 +1,4 @@
-class ssh(
+class v_ssh(
   String $package_name,
   String $service_name,
   String $ensure,
@@ -8,12 +8,12 @@ class ssh(
   Integer $port              = 22,
 ) {
   
-  class { '::ssh::service': }
-  class { '::ssh::config': }
-  class { '::ssh::install': }
+  class { '::v_ssh::service': }
+  class { '::v_ssh::config': }
+  class { '::v_ssh::install': }
 
-  Class['::ssh::install']
-  -> Class['::ssh::config']
-  ~> Class['::ssh::service']
-  -> Class['ssh']
+  Class['::v_ssh::install']
+  -> Class['::v_ssh::config']
+  ~> Class['::v_ssh::service']
+  -> Class['v_ssh']
 }
