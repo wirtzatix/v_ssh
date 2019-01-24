@@ -1,4 +1,4 @@
-class ssh::params {
+class v_ssh::params {
   $permit_root_login = false
   $port              = 22
 
