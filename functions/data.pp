@@ -1,21 +1,21 @@
-function ssh::data {
+function v_ssh::data {
   $base_params = {
-    'ssh::ensure'         => 'present',
-    'ssh::service_enable' => true,
-    'ssh::service_ensure' => 'running',
+    'v_ssh::ensure'         => 'present',
+    'v_ssh::service_enable' => true,
+    'v_ssh::service_ensure' => 'running',
   }
 
   case $facts['os']['family'] {
     'Debian': {
       $os_params = {
-        'ssh::package_name' => 'openssh-server',
-        'ssh::service_name' => 'ssh',
+        'v_ssh::package_name' => 'openssh-server',
+        'v_ssh::service_name' => 'ssh',
       }
     }
     'RedHat': {
       $os_params = {
-        'ssh::package_name' => 'openssh-server',
-        'ssh::service_name' => 'sshd',
+        'v_ssh::package_name' => 'openssh-server',
+        'v_ssh::service_name' => 'sshd',
       }
     }
     default: {
